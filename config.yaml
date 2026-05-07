@@ -1,0 +1,72 @@
+# Simulation Configuration
+simulation:
+  duration: 60
+  step_unit: "4hours"
+  start_hour: 6
+  half_space_size: 25
+  half_place_size: 5
+
+agents:
+  num_agents: 5
+  groups:
+    - id: 0
+      home: "老人の家"
+      personas: ["elderly", "ai_care"]
+    - id: 1
+      home: "娘の家"
+      personas: ["family"]
+    - id: 2
+      home: "hospital"
+      personas: ["doctor", "emergency"]
+  communication_radius: 5
+  memory_limit: 20
+  memory_size: 5
+  message_history_limit: 10
+  message_context_size: 3
+
+places:
+  - name: "老人の家"
+    type: "home"
+    center_x: -15
+    center_y: 5
+    half_size: 4
+    capacity: 5
+  - name: "娘の家"
+    type: "home"
+    center_x: -3
+    center_y: 18
+    half_size: 3
+    capacity: 3
+  - name: "hospital"
+    type: "hospital"
+    center_x: 15
+    center_y: 0
+    half_size: 5
+    capacity: 20
+
+llm:
+  model: "claude-haiku-4-5-20251001"
+  temperature: 0.2
+  max_tokens: 2048
+
+fires: []
+
+# 発熱イベント設定
+fever_events:
+  - persona: "elderly"
+    step: 5
+    temperature: 38.0
+
+# 死亡イベント設定
+death_events:
+  - persona: "elderly"
+    step: 50
+
+visualization:
+  save_frames: true
+  frame_interval: 1
+  output_dir: "output"
+
+logging:
+  level: "INFO"
+  log_file: "simulation.log"

@@ -1,0 +1,19 @@
+# 仮想環境
+venv/
+env/
+
+# APIキー・環境変数（絶対にGitHubに上げない）
+.env
+*.env
+
+# Pythonキャッシュ
+__pycache__/
+*.pyc
+*.pyo
+
+# システムファイル
+.DS_Store
+Thumbs.db
+
+# VSCode設定
+.vscode/
